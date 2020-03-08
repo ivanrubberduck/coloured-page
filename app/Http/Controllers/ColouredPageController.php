@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use GuzzleHttp\Psr7;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
