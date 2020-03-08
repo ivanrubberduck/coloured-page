@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
@@ -19,7 +20,7 @@ class ColouredPageController extends Controller
             $request = $client->request('GET', 'test');
             $response = json_decode($request->getBody()->getContents());
             $colour = $response->colour;
-        } catch (ServerException $exception) {
+        } catch (ServerException | ClientException $exception) {
             if ($exception->hasResponse()) {
                 $colour = '#ffffff';
             }
